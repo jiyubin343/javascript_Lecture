@@ -53,15 +53,13 @@ function moveInvader() {
         stage[invadersLoc[i]].classList.add("invader");
     }
 }
-gameInterval = setInterval(moveInvader, 1000);
-
-interval = setInterval(moveInvader, 1000);
 
 function gameStart() {
     stage[playerLoc].classList.remove("player");
     invadersLoc.forEach(function(invader) {
         stage[invader].classList.remove("invader");
     });
+    display.innerText = ""
     playerLoc = stageSize*(stageSize - 2)+7 //202
     invadersLoc = [
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -91,3 +89,25 @@ function displayStatus() {
 
 startBtn.addEventListener("click", gameStart);
 stopBtn.addEventListener("click",gameStop);
+
+let bulletId;
+let bulletLoc = playerLoc;
+function moveBullet() {
+    stage[bulletLoc].classList.remove("bullet");
+    bulletLoc -= stageSize;
+    stage[bulletLoc].classList.add("bullet");
+}
+
+function shoot() {
+    let id;
+    let bulletLoc = playerLoc;
+    function moveBullet() {
+        stage[p].classList.remove("bullet");
+    p -= stageSize;
+    stage[p].classList.add("bullet");
+    }
+    if (e.key === "ArrowUp") {
+        id = setInterval(moveBullet, 300)
+    }
+    doc
+}
